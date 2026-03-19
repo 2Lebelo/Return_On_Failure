@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Return On Failure® — Thato Sigegede Moloi</title>
 <meta name="description" content="Return On Failure helps entrepreneurs, leaders and young professionals transform setbacks into wisdom, purpose and growth. By Thato Sigegede Moloi.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -37,7 +38,7 @@
   --ease2:   cubic-bezier(0.76,0,0.24,1);
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 18px; }
 body {
   font-family: var(--ff-body);
   background: var(--ink);
@@ -103,6 +104,9 @@ body:hover #cur { opacity:1; }
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--ff-disp);
   font-size: 1.15rem;
   font-weight: 400;
@@ -110,6 +114,12 @@ body:hover #cur { opacity:1; }
   color: var(--white);
   opacity: 0;
   animation: fiu .9s 1.6s var(--ease) forwards;
+}
+.nav-brand-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 .nav-brand span { color: var(--gold); }
 .nav-links {
@@ -129,6 +139,79 @@ body:hover #cur { opacity:1; }
   opacity: 0;
   animation: fiu .9s 2s var(--ease) forwards;
 }
+.nav-mobile-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.2);
+  /* border-radius: 12px; */
+  background: rgba(12,18,16,.5);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.nav-mobile-toggle span {
+  width: 16px;
+  height: 1.5px;
+  background: var(--gold-pale);
+  transition: transform .25s var(--ease), opacity .25s var(--ease);
+}
+.nav-mobile-panel {
+  position: fixed;
+  top: 78px;
+  right: 24px;
+  width: min(320px, calc(100vw - 48px));
+  padding: 16px;
+  /* border-radius: 18px; */
+  border: 1px solid rgba(255,255,255,.14);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(153,200,121,.18) 0%, transparent 40%),
+    linear-gradient(160deg, rgba(19,29,24,.96) 0%, rgba(11,17,15,.98) 100%);
+  box-shadow: 0 20px 45px rgba(0,0,0,.5);
+  opacity: 0;
+  transform: translateY(-10px) scale(.98);
+  pointer-events: none;
+  transition: opacity .28s var(--ease), transform .28s var(--ease);
+}
+.nav-mobile-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav-mobile-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--leaf-light);
+  color: var(--ink);
+  /* border-radius: 999px; */
+  padding: 8px 10px 8px 14px;
+  font-size: .88rem;
+  font-weight: 500;
+}
+.nav-mobile-links a span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11,16,17,.12);
+  color: var(--ink-soft);
+  font-size: .75rem;
+}
+#nav.nav-open .nav-mobile-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+#nav.nav-open .nav-mobile-toggle span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+#nav.nav-open .nav-mobile-toggle span:nth-child(2) { opacity: 0; }
+#nav.nav-open .nav-mobile-toggle span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 .btn-gold {
   display: inline-block;
   padding: 11px 30px;
@@ -527,6 +610,8 @@ section { position:relative; }
 .book-card {
   background:var(--white); position:relative; overflow:hidden;
   transition:transform .5s var(--ease), box-shadow .5s;
+  display:flex;
+  flex-direction:column;
 }
 .book-card:hover { transform:translateY(-6px); box-shadow:0 30px 70px rgba(0,0,0,.14); }
 .book-cover {
@@ -538,7 +623,11 @@ section { position:relative; }
   position:absolute; inset:0;
 }
 .book-cover-content {
-  position:relative; z-index:2; text-align:center; padding:20px;
+  position:relative; z-index:2; text-align:center; padding:0;
+  width:100%; height:100%;
+}
+.book-cover-image {
+  width:100%; height:100%; object-fit:cover;
 }
 /* Book 1 — Return on Failure */
 .bc1 { background:linear-gradient(160deg, #0f1c0a 0%, #1a3010 40%, #0a1206 100%); }
@@ -564,7 +653,12 @@ section { position:relative; }
 .bc3-sub { font-size:.58rem; letter-spacing:.1em; color:rgba(255,255,255,.5); margin-top:8px; }
 .bc3-hero { width:70px; margin:14px auto; opacity:.75; }
 
-.book-body { padding:32px 30px 36px; }
+.book-body {
+  padding:32px 30px 36px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
 .book-badge {
   display:inline-block; padding:4px 12px; border:1px solid rgba(126,171,98,.4);
   font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold);
@@ -574,19 +668,20 @@ section { position:relative; }
   font-family:var(--ff-disp); font-size:1.5rem; font-weight:400; color:var(--ink); margin-bottom:10px;
 }
 .book-body p { font-size:.875rem; line-height:1.8; color:var(--text-body); font-weight:300; margin-bottom:22px; }
-.book-perks { list-style:none; margin-bottom:26px; display:flex; flex-direction:column; gap:8px; }
+.book-perks { list-style:none; margin-bottom:26px; display:flex; flex-direction:column; gap:8px; flex:1; }
 .book-perks li {
   font-size:.8rem; color:var(--text-body); padding-left:18px; position:relative;
 }
 .book-perks li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
 .book-verse {
-  font-family:var(--ff-disp); font-style:italic; font-size:.82rem;
-  color:rgba(34,40,37,.45); border-left:2px solid rgba(126,171,98,.35);
+  font-family:var(--ff-disp); font-style:italic; font-size:1rem;
+  color:rgba(34,40,37,.66); border-left:2px solid rgba(126,171,98,.5);
   padding-left:12px; line-height:1.55; margin-bottom:26px;
 }
 .book-cta {
   display:flex; align-items:center; justify-content:space-between;
   border-top:1px solid rgba(0,0,0,.07); padding-top:22px;
+  margin-top:auto;
 }
 .book-price {
   font-family:var(--ff-disp); font-size:1.6rem; font-weight:600; color:var(--ink);
@@ -767,7 +862,16 @@ footer {
   margin-bottom:60px;
 }
 .footer-brand h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family:var(--ff-disp); font-size:1.3rem; font-weight:400; margin-bottom:14px; color:var(--white);
+}
+.footer-brand-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 .footer-brand p { font-size:.84rem; line-height:1.8; color:rgba(255,255,255,.35); font-weight:300; max-width:280px; }
 .footer-brand .footer-verse {
@@ -807,6 +911,8 @@ footer {
 @media(max-width:960px){
   #nav { padding:18px 24px; }
   .nav-links { display:none; }
+  .nav-cta { display:none; }
+  .nav-mobile-toggle { display:flex; }
   .mission-grid,
   .about-grid { grid-template-columns:1fr; gap:56px; }
   .books-grid,
@@ -841,7 +947,10 @@ footer {
      NAV
 ============================================================ -->
 <nav id="nav">
-  <a href="#" class="nav-brand">Return <span>On</span> Failure<sup style="font-size:.55em;opacity:.5">®</sup></a>
+  <a href="#" class="nav-brand">
+    <img class="nav-brand-logo" src="resources/ReturnOnFailure_Logo.png" alt="Return On Failure logo">
+    <span>Return <span>On</span> Failure<sup style="font-size:.55em;opacity:.5">®</sup></span>
+  </a>
   <ul class="nav-links">
     <li><a href="#mission">Mission</a></li>
     <li><a href="#books">The Books</a></li>
@@ -851,6 +960,20 @@ footer {
   </ul>
   <div class="nav-cta">
     <a href="#books" class="btn-gold">Get the Book</a>
+  </div>
+  <button class="nav-mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobilePanel">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-mobile-panel" id="navMobilePanel" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      <li><a href="#mission">Mission <span>→</span></a></li>
+      <li><a href="#books">The Books <span>→</span></a></li>
+      <li><a href="#framework">Framework <span>→</span></a></li>
+      <li><a href="#about">About <span>→</span></a></li>
+      <li><a href="#cta">Contact <span>→</span></a></li>
+    </ul>
   </div>
 </nav>
 
@@ -952,7 +1075,7 @@ footer {
 <!-- ============================================================
      § JOURNEY STEPS
 ============================================================ -->
-<section id="journey">
+<section id="framework">
   <div class="inner">
     <div class="journey-head">
       <p class="eyebrow reveal">What You Will Learn</p>
@@ -1048,26 +1171,7 @@ footer {
         <div class="book-cover">
           <div class="book-cover-bg bc1"></div>
           <div class="book-cover-content">
-            <!-- SVG plant emerging from cracked ground -->
-            <svg width="90" height="140" viewBox="0 0 90 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- cracked ground -->
-              <ellipse cx="45" cy="115" rx="40" ry="8" fill="rgba(0,0,0,.4)"/>
-              <path d="M15 120 L28 108 L22 118 L35 105 L30 115 L45 100" stroke="rgba(255,255,255,.15)" stroke-width="1" fill="none"/>
-              <path d="M75 120 L62 108 L68 118 L55 105 L60 115 L45 100" stroke="rgba(255,255,255,.15)" stroke-width="1" fill="none"/>
-              <path d="M5 125 L20 115 L30 122 L15 118" stroke="rgba(255,255,255,.12)" stroke-width="1" fill="none"/>
-              <!-- stem -->
-              <path d="M45 100 L45 50" stroke="#3a8a2a" stroke-width="2.5" stroke-linecap="round"/>
-              <!-- leaves -->
-              <path d="M45 70 Q30 55 22 58 Q32 72 45 68" fill="#2a7a1a" opacity=".9"/>
-              <path d="M45 62 Q60 47 68 50 Q58 64 45 60" fill="#3a9a28" opacity=".85"/>
-              <path d="M45 55 Q35 42 30 43 Q38 54 45 52" fill="#2d8820" opacity=".75"/>
-              <!-- light glow at top -->
-              <circle cx="45" cy="45" r="18" fill="rgba(255,220,80,.07)"/>
-              <circle cx="45" cy="42" r="8" fill="rgba(255,230,100,.1)"/>
-            </svg>
-            <div class="bc1-title">RETURN<br>ON FAILURE</div>
-            <div class="bc1-sub">How Setbacks Prepare Us for Greater Success</div>
-            <div class="bc1-author">THATO MOLOI</div>
+            <img class="book-cover-image" src="resources/Return_To_Failure_cover.jpeg" alt="Return On Failure book cover">
           </div>
         </div>
         <div class="book-body">
@@ -1094,12 +1198,8 @@ footer {
       <div class="book-card reveal d1">
         <div class="book-cover">
           <div class="book-cover-bg bc2"></div>
-          <div class="book-cover-content" style="color:var(--ink);">
-            <div style="margin-bottom:10px;font-size:.6rem;letter-spacing:.2em;color:rgba(34,40,37,.4);text-transform:uppercase;">Thato Sigegede Moloi</div>
-            <div class="bc2-title">Hearing<br>The Shepherd's<br>Voice</div>
-            <div class="bc2-sub">How to Recognize and Follow God's Call from the Book of John</div>
-            <!-- shepherd's crook -->
-            <svg class="bc2-hook" width="40" height="60" viewBox="0 0 40 60"><path d="M20 55 L20 20 Q20 8 30 8 Q38 8 38 16 Q38 24 30 24 Q22 24 20 20" stroke="rgba(34,40,37,.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <div class="book-cover-content">
+            <img class="book-cover-image" src="resources/What%20Do%20you%20know.png" alt="What Do You Know book cover">
           </div>
         </div>
         <div class="book-body">
@@ -1125,16 +1225,7 @@ footer {
         <div class="book-cover">
           <div class="book-cover-bg bc3"></div>
           <div class="book-cover-content">
-            <div class="bc3-title">UNSTOPPABLE</div>
-            <div class="bc3-sub">Servant Leadership Lessons from Paul</div>
-            <!-- warrior/servant figure -->
-            <svg class="bc3-hero" width="60" height="80" viewBox="0 0 60 80" fill="none">
-              <circle cx="30" cy="18" r="10" fill="rgba(240,192,64,.6)"/>
-              <path d="M30 28 L30 55 M20 35 L40 35 M30 55 L20 72 M30 55 L40 72" stroke="rgba(240,192,64,.5)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M22 30 L10 40 M38 30 L50 40" stroke="rgba(240,192,64,.4)" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <div class="bc3-sub" style="margin-top:8px;">Leading with Purpose in the Face of Opposition</div>
-            <div style="margin-top:10px;font-size:.62rem;letter-spacing:.1em;color:rgba(255,255,255,.4);">THATO S MOLOI</div>
+            <img class="book-cover-image" src="resources/Unstoppable.png" alt="Unstoppable book cover">
           </div>
         </div>
         <div class="book-body">
@@ -1298,7 +1389,10 @@ footer {
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <h3>Return On Failure<sup style="font-size:.55em;opacity:.5;">®</sup></h3>
+      <h3>
+        <img class="footer-brand-logo" src="resources/ReturnOnFailure_Logo.png" alt="Return On Failure logo">
+        <span>Return On Failure<sup style="font-size:.55em;opacity:.5;">®</sup></span>
+      </h3>
       <p>Through faith, leadership insights, and real-life experience, this platform encourages people to see failure not as defeat, but as preparation for something greater.</p>
       <p class="footer-verse">"For though the righteous fall seven times, they rise again." — Proverbs 24:16</p>
     </div>
@@ -1315,10 +1409,10 @@ footer {
     <div class="footer-col">
       <h4>The Books</h4>
       <ul>
-        <li><a href="#">Return On Failure</a></li>
-        <li><a href="#">Hearing The Shepherd's Voice</a></li>
-        <li><a href="#">Unstoppable</a></li>
-        <li><a href="#">View All Books →</a></li>
+        <li><a href="#books">Return On Failure</a></li>
+        <li><a href="#books">Hearing The Shepherd's Voice</a></li>
+        <li><a href="#books">Unstoppable</a></li>
+        <li><a href="#books">View All Books →</a></li>
       </ul>
     </div>
     <div class="footer-col footer-contact">
@@ -1364,6 +1458,38 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, {passive:true});
+
+/* ---- Mobile nav ---- */
+const navToggle = document.querySelector('.nav-mobile-toggle');
+const navPanel = document.getElementById('navMobilePanel');
+const mobileNavLinks = document.querySelectorAll('.nav-mobile-links a');
+
+function closeMobileNav(){
+  if(!nav) return;
+  nav.classList.remove('nav-open');
+  if(navToggle) navToggle.setAttribute('aria-expanded','false');
+  if(navPanel) navPanel.setAttribute('aria-hidden','true');
+}
+
+if(navToggle && navPanel && nav){
+  navToggle.addEventListener('click',()=>{
+    const isOpen = nav.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navPanel.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  mobileNavLinks.forEach(link=>{
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  document.addEventListener('click',e=>{
+    if(nav.classList.contains('nav-open') && !nav.contains(e.target)) closeMobileNav();
+  });
+
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth > 960) closeMobileNav();
+  });
+}
 
 /* ---- Dust motes ---- */
 const dustEl = document.getElementById('dust');
@@ -1460,7 +1586,9 @@ statNums.forEach(el=>co.observe(el));
 /* ---- Smooth anchor scroll ---- */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
+    const href = a.getAttribute('href');
+    if(!href || href === '#') return;
+    const t=document.querySelector(href);
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
   });
 });
