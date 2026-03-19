@@ -6,10 +6,18 @@
 <title>Return On Failure® — Thato Sigegede Moloi</title>
 <meta name="description" content="Return On Failure helps entrepreneurs, leaders and young professionals transform setbacks into wisdom, purpose and growth. By Thato Sigegede Moloi.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+@font-face {
+  font-family: 'Proxima Nova';
+  src:
+    local('Proxima Nova'),
+    local('ProximaNova-Regular'),
+    local('Proxima Nova Regular');
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
 /* ============================================================
    ROOT & RESET
 ============================================================ */
@@ -32,13 +40,13 @@
   --text-body:  rgba(20,24,22,0.62);
   --text-light: rgba(255,255,255,0.55);
 
-  --ff-disp: 'Cormorant Garamond', Georgia, serif;
-  --ff-body: 'Jost', system-ui, sans-serif;
+  --ff-disp: 'Proxima Nova', 'Avenir Next', 'Segoe UI', sans-serif;
+  --ff-body: 'Proxima Nova', 'Avenir Next', 'Segoe UI', sans-serif;
   --ease:    cubic-bezier(0.16,1,0.3,1);
   --ease2:   cubic-bezier(0.76,0,0.24,1);
 }
 
-html { scroll-behavior: smooth; font-size: 18px; }
+html { scroll-behavior: smooth; font-size: 20px; }
 body {
   font-family: var(--ff-body);
   background: var(--ink);
@@ -807,6 +815,95 @@ section { position:relative; }
   display:block; margin-top:12px; font-size:.68rem;
   letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-style:normal;
 }
+.about-right {
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+.about-timeline-wrap {
+  margin-top: 54px;
+}
+.about-timeline-wrap .timeline {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.author-portrait {
+  position:relative;
+  border:1px solid rgba(145,192,112,.24);
+  background:linear-gradient(160deg, rgba(17,26,24,.95) 0%, rgba(10,16,15,.98) 100%);
+  overflow:hidden;
+}
+.author-portrait::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, transparent 45%, rgba(5,8,7,.55) 100%);
+  pointer-events:none;
+}
+.author-portrait img {
+  width:100%;
+  aspect-ratio: 3 / 5;
+  object-fit:cover;
+}
+.author-portrait-meta {
+  position:absolute;
+  left:16px;
+  bottom:14px;
+  z-index:2;
+}
+.author-portrait-meta .tl-title {
+  margin-bottom:2px;
+}
+.author-portrait-meta .tl-text {
+  color:rgba(255,255,255,.72);
+  line-height:1.4;
+}
+.about-insights {
+  margin-top: 70px;
+}
+.about-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.rof-insight-card {
+  background: linear-gradient(160deg, rgba(20,28,30,.95) 0%, rgba(12,18,20,.96) 100%);
+  border: 1px solid rgba(145,192,112,.2);
+  /* border-radius: 14px; */
+  padding: 18px 16px 16px;
+  min-height: 74px;
+  cursor: pointer;
+  transition: border-color .25s, box-shadow .25s;
+}
+.rof-insight-card:hover {
+  border-color: rgba(145,192,112,.4);
+  box-shadow: 0 14px 34px rgba(0,0,0,.28);
+}
+.rof-insight-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rof-insight-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--gold-pale);
+  flex-shrink: 0;
+}
+.rof-insight-head .tl-title {
+  margin-bottom: 0;
+}
+.rof-insight-content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+}
+.rof-insight-content .tl-text {
+  color: rgba(255,255,255,.82);
+  line-height: 1.55;
+  margin-top: 14px;
+}
 .timeline { display:flex; flex-direction:column; gap:0; }
 .tl-item {
   display:grid; grid-template-columns:28px 1fr;
@@ -826,29 +923,188 @@ section { position:relative; }
 .tl-text { font-size:.84rem; line-height:1.82; color:rgba(255,255,255,.42); font-weight:300; }
 
 /* ============================================================
-   § CTA
+   § CONTACT
 ============================================================ */
-#cta {
-  background:var(--ink); padding:200px 60px; text-align:center; overflow:hidden;
+#contact {
+  background:linear-gradient(135deg, #1a1f21 0%, #141a1b 45%, #101617 100%);
+  padding:140px 60px;
+  overflow:hidden;
 }
-#cta::before {
-  content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:900px; height:900px;
-  background:radial-gradient(circle, rgba(126,171,98,.055) 0%, transparent 65%);
+#contact::before {
+  content:'';
+  position:absolute;
+  inset:0;
   pointer-events:none;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.04) 0%, transparent 55%),
+    radial-gradient(circle at 85% 40%, rgba(126,171,98,.08) 0%, transparent 40%);
 }
-.cta-eyebrow { color:var(--gold); margin-bottom:24px; }
-.cta-h2 {
-  font-family:var(--ff-disp); font-size:clamp(3rem,6.5vw,6rem);
-  font-weight:300; line-height:1.04; color:var(--white); margin-bottom:20px;
-  max-width:800px; margin-left:auto; margin-right:auto;
+.contact-grid {
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:54px;
+  align-items:start;
 }
-.cta-h2 em { font-style:italic; color:var(--gold-pale); }
-.cta-verse {
-  font-family:var(--ff-disp); font-style:italic; font-size:1rem;
-  color:rgba(255,255,255,.32); margin-bottom:52px;
+.contact-left h2 {
+  font-family:var(--ff-disp);
+  font-size:clamp(2.2rem,4.8vw,3.2rem);
+  font-weight:300;
+  margin-bottom:20px;
 }
-.cta-btns { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+.contact-intro {
+  max-width:520px;
+  font-size:1rem;
+  line-height:1.72;
+  color:rgba(255,255,255,.72);
+  margin-bottom:26px;
+}
+.contact-scripture {
+  max-width:520px;
+  font-size:1rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.82);
+  margin-bottom:30px;
+}
+.contact-list {
+  max-width:540px;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+.contact-item {
+  display:grid;
+  grid-template-columns:24px 1fr;
+  gap:14px;
+  align-items:start;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.16);
+}
+.contact-icon {
+  width:18px;
+  height:18px;
+  color:rgba(255,255,255,.9);
+  margin-top:4px;
+}
+.contact-item-label {
+  font-size:.96rem;
+  color:rgba(255,255,255,.95);
+  margin-bottom:6px;
+}
+.contact-item-value {
+  font-size:2rem;
+  line-height:1.2;
+  color:rgba(215,225,235,.88);
+}
+.contact-item-value.small {
+  font-size:1.05rem;
+  line-height:1.6;
+}
+.contact-social {
+  margin-top:26px;
+}
+.contact-social h4 {
+  font-size:.92rem;
+  color:rgba(255,255,255,.95);
+  margin-bottom:14px;
+}
+.contact-social-links {
+  display:flex;
+  gap:12px;
+}
+.contact-social-links a {
+  width:36px;
+  height:36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,.26);
+  color:rgba(255,255,255,.9);
+  transition:all .25s var(--ease);
+}
+.contact-social-links a:hover {
+  border-color:var(--gold);
+  color:var(--gold);
+  transform:translateY(-2px);
+}
+.contact-social-links svg { width:18px; height:18px; }
+
+.contact-form-card {
+  background:linear-gradient(160deg, rgba(26,30,31,.95) 0%, rgba(18,22,23,.98) 100%);
+  border:1px solid rgba(255,255,255,.1);
+  padding:34px 34px 30px;
+  box-shadow:0 22px 56px rgba(0,0,0,.28);
+}
+.contact-form-card h3 {
+  font-family:var(--ff-disp);
+  font-size:2rem;
+  font-weight:300;
+  margin-bottom:24px;
+}
+.contact-form {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.contact-form label {
+  font-size:.9rem;
+  color:rgba(255,255,255,.95);
+  margin-bottom:6px;
+  display:inline-block;
+}
+.contact-form .req { color:#ff5f55; }
+.contact-name-row {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.contact-input,
+.contact-textarea {
+  width:100%;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.97);
+  color:#1b2220;
+  padding:10px 12px;
+  font-family:var(--ff-body);
+  font-size:.92rem;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(126,171,98,.22);
+}
+.contact-name-hint {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:4px;
+}
+.contact-name-hint span {
+  font-size:.74rem;
+  color:rgba(255,255,255,.72);
+}
+.contact-textarea {
+  min-height:120px;
+  resize:vertical;
+}
+.contact-submit {
+  align-self:flex-start;
+  margin-top:6px;
+  padding:10px 18px;
+  background:var(--gold);
+  color:var(--ink);
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.05em;
+  border:none;
+  cursor:pointer;
+  transition:background .2s, transform .2s;
+}
+.contact-submit:hover {
+  background:var(--gold-lt);
+  transform:translateY(-1px);
+}
 
 /* ============================================================
    § FOOTER
@@ -915,6 +1171,7 @@ footer {
   .nav-mobile-toggle { display:flex; }
   .mission-grid,
   .about-grid { grid-template-columns:1fr; gap:56px; }
+  .about-insights-grid { grid-template-columns:1fr; }
   .books-grid,
   .journey-steps,
   .fw-grid { grid-template-columns:1fr 1fr; }
@@ -924,7 +1181,10 @@ footer {
   .stage-num { font-size:3rem; }
   .footer-grid { grid-template-columns:1fr 1fr; gap:40px; }
   .sec-pad,
-  #journey,#formula,#books,#framework,#stages,#about,#cta { padding:80px 24px; }
+  #journey,#formula,#books,#framework,#stages,#about,#contact { padding:80px 24px; }
+  .contact-grid { grid-template-columns:1fr; gap:30px; }
+  .contact-item-value { font-size:1.8rem; }
+  .contact-form-card { padding:24px; }
   footer { padding:56px 24px 36px; }
 }
 @media(max-width:600px){
@@ -934,6 +1194,8 @@ footer {
   .fw-row-2 { grid-template-columns:1fr; }
   .footer-grid { grid-template-columns:1fr; }
   .stats-box { grid-template-columns:1fr 1fr; }
+  .contact-name-row,
+  .contact-name-hint { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -956,7 +1218,7 @@ footer {
     <li><a href="#books">The Books</a></li>
     <li><a href="#journey">Framework</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#cta">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-cta">
     <a href="#books" class="btn-gold">Get the Book</a>
@@ -972,7 +1234,7 @@ footer {
       <li><a href="#books">The Books <span>→</span></a></li>
       <li><a href="#journey">Framework <span>→</span></a></li>
       <li><a href="#about">About <span>→</span></a></li>
-      <li><a href="#cta">Contact <span>→</span></a></li>
+      <li><a href="#contact">Contact <span>→</span></a></li>
     </ul>
   </div>
 </nav>
@@ -1000,7 +1262,8 @@ footer {
   <!-- Hero Text -->
   <div id="heroTxt">
     <p class="hero-tag">Thato Sigegede Moloi</p>
-    <h1 class="hero-h1">Return<br><em>on Failure</em></h1>
+    <!-- <h1 class="hero-h1">Return<br><em>on Failure</em></h1> -->
+     <h1 class="here-h1">FAILURE IS NOT THE<br> OPPOSITE OF SUCCESS<br><em> IT IS PART OF THE JOURNEY TOWARDS IT</em></h1>
     <p class="hero-verse">"Every failure contains the seeds of a future harvest."</p>
   </div>
 
@@ -1199,7 +1462,7 @@ footer {
         <div class="book-cover">
           <div class="book-cover-bg bc2"></div>
           <div class="book-cover-content">
-            <img class="book-cover-image" src="resources/What%20Do%20you%20know.png" alt="What Do You Know book cover">
+            <img class="book-cover-image" src="resources/Hearing_The_Shepherds_voice.jpeg" alt="What Do You Know book cover">
           </div>
         </div>
         <div class="book-body">
@@ -1322,63 +1585,178 @@ footer {
         </div>
       </div>
       <div class="about-right">
-        <!-- Timeline -->
-        <div class="timeline">
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div>
-              <div class="tl-title">Early Years — The First Venture</div>
-              <div class="tl-text">From a young age, drawn to creating opportunities. While still in high school, started a small barber shop — earning his own income and beginning to explore entrepreneurship.</div>
-            </div>
-          </div>
-          <div class="tl-item reveal d1">
-            <div class="tl-dot"></div>
-            <div>
-              <div class="tl-title">Discovering Different Paths</div>
-              <div class="tl-text">Plumbing, skincare consulting, fragrance, fitness sales, insurance. Each experience taught invaluable lessons about people, business, and what it means to persevere.</div>
-            </div>
-          </div>
-          <div class="tl-item reveal d2">
-            <div class="tl-dot"></div>
-            <div>
-              <div class="tl-title">A Season of Entrepreneurship</div>
-              <div class="tl-text">Tutoring, photography, and eventually launching ventures in the insurance industry. These experiences forged his leadership and entrepreneurial mindset.</div>
-            </div>
-          </div>
-          <div class="tl-item reveal d3">
-            <div class="tl-dot"></div>
-            <div>
-              <div class="tl-title">The Turning Point — Raindrop Africa</div>
-              <div class="tl-text">A company built from the ground up collapsed after years of work and investment. What seemed like devastation became the defining moment that reshaped his entire understanding of success and purpose.</div>
-            </div>
-          </div>
-          <div class="tl-item reveal d4">
-            <div class="tl-dot" style="background:var(--leaf-light);"></div>
-            <div>
-              <div class="tl-title">The Birth of Return On Failure</div>
-              <div class="tl-text">Through faith, reflection, and the lessons forged in collapse, Thato understood that setbacks are investments producing wisdom and growth. Romans 8:28 became the foundation — and a movement was born.</div>
-            </div>
+        <figure class="author-portrait reveal d1">
+          <img src="resources/Author.jpeg" alt="Portrait of Thato Sigegede Moloi">
+          <!-- <figcaption class="author-portrait-meta">
+            <div class="tl-title">Thato Sigegede Moloi</div>
+            <div class="tl-text">Writer · Kingdom Entrepreneur · Innovator</div>
+          </figcaption> -->
+        </figure>
+      </div>
+    </div>
+
+    <div class="about-timeline-wrap">
+      <!-- Timeline -->
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">Early Years — The First Venture</div>
+            <div class="tl-text">From a young age, drawn to creating opportunities. While still in high school, started a small barber shop — earning his own income and beginning to explore entrepreneurship.</div>
           </div>
         </div>
+        <div class="tl-item reveal d1">
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">Discovering Different Paths</div>
+            <div class="tl-text">Plumbing, skincare consulting, fragrance, fitness sales, insurance. Each experience taught invaluable lessons about people, business, and what it means to persevere.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal d2">
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">A Season of Entrepreneurship</div>
+            <div class="tl-text">Tutoring, photography, and eventually launching ventures in the insurance industry. These experiences forged his leadership and entrepreneurial mindset.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal d3">
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">The Turning Point — Raindrop Africa</div>
+            <div class="tl-text">A company built from the ground up collapsed after years of work and investment. What seemed like devastation became the defining moment that reshaped his entire understanding of success and purpose.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal d4">
+          <div class="tl-dot" style="background:var(--leaf-light);"></div>
+          <div>
+            <div class="tl-title">The Birth of Return On Failure</div>
+            <div class="tl-text">Through faith, reflection, and the lessons forged in collapse, Thato understood that setbacks are investments producing wisdom and growth. Romans 8:28 became the foundation — and a movement was born.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-insights reveal">
+      <div class="about-insights-grid">
+        <article class="rof-insight-card" data-insight-card>
+          <div class="rof-insight-head">
+            <svg class="rof-insight-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5.5h8M8 9h8M8 12.5h5M7 3h10a2 2 0 0 1 2 2v14l-3-2-4 2-4-2-3 2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="tl-title">The Return on Failure Philosophy</div>
+          </div>
+          <div class="rof-insight-content" data-insight-content>
+            <p class="tl-text">Failure is often seen as the opposite of success, but in reality it is one of the greatest teachers in life. The concept of Return On Failure is built on the belief that every setback carries a lesson, wisdom, and growth that prepares us for greater success.</p>
+            <p class="tl-text">When we change the way we see failure, we begin to understand that it is not a loss-it is an investment. The Return comes through experience, resilience, and the ability to rise stronger</p>
+          </div>
+        </article>
+
+        <article class="rof-insight-card" data-insight-card>
+          <div class="rof-insight-head">
+            <svg class="rof-insight-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 4v16M12 6c2.8 0 5.2 1 6.5 2.5C17.2 10 14.8 11 12 11m0-5c-2.8 0-5.2 1-6.5 2.5C6.8 10 9.2 11 12 11m0 9a5 5 0 0 0 5-5v-2H7v2a5 5 0 0 0 5 5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="tl-title">Leadership Through Adversity</div>
+          </div>
+          <div class="rof-insight-content" data-insight-content>
+            <p class="tl-text">Great leaders and entrepreneurs are not defined by their success alone but by how they respond to failure.</p>
+            <p class="tl-text">Through My Journey in entrepreneurship, I share insights on leadership, resilience, innovation, and growth. His work encourages individuals and organizations to embrace challenges, learn from mistakes, and build stronger foundations for the future.</p>
+            <p class="tl-text">Failure, when understood correctly, becomes a powerful tool for growth.</p>
+          </div>
+        </article>
+
+        <article class="rof-insight-card" data-insight-card>
+          <div class="rof-insight-head">
+            <svg class="rof-insight-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 17h.01M9.1 9.5a3 3 0 1 1 4.8 2.4c-.9.7-1.4 1.3-1.4 2.1v.5M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="tl-title">Questions About Failure</div>
+          </div>
+          <div class="rof-insight-content" data-insight-content>
+            <p class="tl-text">Why do successful people fail?</p>
+            <p class="tl-text">Failure is often part of innovation and growth.</p>
+            <p class="tl-text">Every breakthrough usually comes after multiple attempts.</p>
+            <p class="tl-text">What is Return on Failure?</p>
+            <p class="tl-text">Return on failure is the idea that every failure contains lessons that can lead to wisdom, resilience, and future success.</p>
+            <p class="tl-text">How should we respond to failure?</p>
+            <p class="tl-text">Instead of asking “Why did this happen to me?”, we should ask “What can I learn from this experience?”</p>
+          </div>
+        </article>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     § CTA
+     § CONTACT
 ============================================================ -->
-<section id="cta">
-  <div class="inner" style="max-width:860px; text-align:center;">
-    <p class="cta-eyebrow eyebrow reveal">Your Next Chapter Starts Here</p>
-    <h2 class="cta-h2 reveal d1">
-      Stop surviving<br>your failure.<br>
-      <em>Start returning on it.</em>
-    </h2>
-    <p class="cta-verse reveal d2">"For though the righteous fall seven times, they rise again." — Proverbs 24:16</p>
-    <div class="cta-btns reveal d3">
-      <a href="#books" class="btn-gold">Get the Book</a>
-      <a href="mailto:library@return-on-failure.com" class="btn-outline-dark">Contact Thato</a>
+<section id="contact">
+  <div class="inner contact-grid">
+    <div class="contact-left reveal">
+      <h2>Get In Touch</h2>
+      <p class="contact-intro">If you have any questions about the book, speaking engagements, partnerships, or leadership conversations, feel free to reach out. I would love to hear and connect with you.</p>
+      <p class="contact-scripture">“Plans fail for lack of counsel, but with many advisers they succeed.” – Proverbs 11:14</p>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div>
+            <div class="contact-item-label tl-title">Location</div>
+            <div class="tl-text">Cape Town, Western Cape<br>South Africa</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 4h3l2 5-1.5 1.5a16 16 0 0 0 5 5L15 14l5 2v3a2 2 0 0 1-2.2 2A17.8 17.8 0 0 1 3 6.2 2 2 0 0 1 5 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="contact-item-label tl-title">Phone</div>
+            <div class="tl-text">+27-71 839 7407</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="m4 8 8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="contact-item-label tl-title">Email</div>
+            <div class="tl-text">library@return-on-failure.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-social">
+        <h4>Follow us</h4>
+        <div class="contact-social-links">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 5.9c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.2 1.7-2.1-.8.5-1.6.8-2.5 1a4 4 0 0 0-6.9 2.7c0 .3 0 .6.1.9A11.3 11.3 0 0 1 3 4.8a4 4 0 0 0 1.2 5.3c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.5.1-1 .1-1.5.1a4 4 0 0 0 3.7 2.8A8.1 8.1 0 0 1 2 18.4a11.4 11.4 0 0 0 6.2 1.8c7.4 0 11.5-6.2 11.5-11.6v-.5c.8-.6 1.5-1.3 2-2.2Z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.8 8.3a2.9 2.9 0 0 0-2-2.1C18 5.7 12 5.7 12 5.7s-6 0-7.8.5a2.9 2.9 0 0 0-2 2.1A30.7 30.7 0 0 0 2 12c0 1.3.1 2.5.3 3.7a2.9 2.9 0 0 0 2 2.1c1.8.5 7.7.5 7.7.5s6 0 7.8-.5a2.9 2.9 0 0 0 2-2.1c.2-1.2.3-2.4.3-3.7s-.1-2.5-.3-3.7ZM10 15.2V8.8l5.2 3.2-5.2 3.2Z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61588627480213" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.3-1.3h1.4V5.9c-.2 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.9v1.6H8V14h2.2v7h3.3Z"/></svg></a>
+          <a href="https://www.instagram.com/return_on_failure/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.8" r="1" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card reveal d1">
+      <h3>Send a message</h3>
+      <form class="contact-form" action="https://formsubmit.co/lebelorethabile21@gmail.com" method="post">
+        <div>
+          <label for="contactFirstName">Name <span class="req">*</span></label>
+          <div class="contact-name-row">
+            <input id="contactFirstName" class="contact-input" type="text" name="firstName" required>
+            <input id="contactLastName" class="contact-input" type="text" name="lastName" required>
+          </div>
+          <div class="contact-name-hint"><span>First</span><span>Last</span></div>
+        </div>
+
+        <div>
+          <label for="contactEmail">Email <span class="req">*</span></label>
+          <input id="contactEmail" class="contact-input" type="email" name="email" required>
+        </div>
+
+        <div>
+          <label for="contactSubject">Subject <span class="req">*</span></label>
+          <input id="contactSubject" class="contact-input" type="text" name="subject" required>
+        </div>
+
+        <div>
+          <label for="contactMessage">Comment or Message <span class="req">*</span></label>
+          <textarea id="contactMessage" class="contact-textarea" name="message" required></textarea>
+        </div>
+
+        <button class="contact-submit" type="submit">Send Message</button>
+      </form>
     </div>
   </div>
 </section>
@@ -1423,7 +1801,7 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Return on Failure®. All rights reserved.</span>
+    <span class="footer-copy">© 2026 Return on Failure® | Inspiring Growth Through Failure Developed By Topisi Holdings. All rights reserved.</span>
     <div style="display:flex;gap:24px;">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms</a>
@@ -1434,6 +1812,7 @@ footer {
 <!-- ============================================================
      JAVASCRIPT
 ============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script>
 /* ---- Cursor ---- */
 const cur = document.getElementById('cur');
@@ -1582,6 +1961,86 @@ const co=new IntersectionObserver(entries=>{
   });
 },{threshold:.5});
 statNums.forEach(el=>co.observe(el));
+
+/* ---- About insight cards (GSAP) ---- */
+const insightCards = document.querySelectorAll('[data-insight-card]');
+const insightGrid = document.querySelector('.about-insights-grid');
+const isDesktop = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 960;
+
+function collapseInsight(card){
+  const content = card.querySelector('[data-insight-content]');
+  if(!content) return;
+  if(window.gsap){
+    gsap.killTweensOf(content);
+    gsap.to(content, {height: 0, opacity: 0, marginTop: 0, duration: .3, ease: 'power2.out'});
+  } else {
+    content.style.height = '0px';
+    content.style.opacity = '0';
+    content.style.marginTop = '0px';
+  }
+  card.classList.remove('is-open');
+}
+
+function expandInsight(card){
+  const content = card.querySelector('[data-insight-content]');
+  if(!content) return;
+  if(window.gsap){
+    gsap.killTweensOf(content);
+    gsap.to(content, {height: 'auto', opacity: 1, marginTop: 12, duration: .42, ease: 'power3.out'});
+  } else {
+    content.style.height = 'auto';
+    content.style.opacity = '1';
+    content.style.marginTop = '12px';
+  }
+  card.classList.add('is-open');
+}
+
+function collapseInsightsExcept(activeCard){
+  insightCards.forEach(c=>{
+    if(c !== activeCard) collapseInsight(c);
+  });
+}
+
+function expandAllInsights(){
+  insightCards.forEach(c=>expandInsight(c));
+}
+
+function collapseAllInsights(){
+  insightCards.forEach(c=>collapseInsight(c));
+}
+
+if(insightCards.length){
+  insightCards.forEach(card=>{
+    const content = card.querySelector('[data-insight-content]');
+    if(content) {
+      content.style.height = '0px';
+      content.style.opacity = '0';
+      content.style.marginTop = '0px';
+    }
+
+    card.addEventListener('click', ()=>{
+      if(isDesktop()) return;
+      const isOpen = card.classList.contains('is-open');
+      collapseInsightsExcept(card);
+      if(isOpen) collapseInsight(card);
+      else expandInsight(card);
+    });
+  });
+
+  if(insightGrid){
+    insightGrid.addEventListener('mouseenter', ()=>{
+      if(isDesktop()) expandAllInsights();
+    });
+
+    insightGrid.addEventListener('mouseleave', ()=>{
+      if(isDesktop()) collapseAllInsights();
+    });
+  }
+
+  window.addEventListener('resize', ()=>{
+    collapseAllInsights();
+  });
+}
 
 /* ---- Smooth anchor scroll ---- */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
