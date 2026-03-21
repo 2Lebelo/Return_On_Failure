@@ -456,7 +456,7 @@ body:hover #cur { opacity:1; }
 .hero-verse {
   margin-top:22px;
   font-size:.8rem; font-weight:300; letter-spacing:.06em;
-  color:rgba(255,255,255,.38); font-style:italic;
+  color:rgba(255, 255, 255, 0.767); font-style:italic;
   opacity:0; animation:fid .9s 1.2s var(--ease) forwards;
 }
 .hero-scroll {
@@ -594,7 +594,7 @@ section { position:relative; }
 }
 .frac-t, .frac-b { font-size:.42em; padding:3px 14px; color:var(--ink-soft); }
 .frac-line { width:100%; height:1.5px; background:var(--ink-soft); }
-.formula-eq .eq-sign { color:var(--gold); margin:0 14px; }
+.formula-eq .eq-sign { color:var(--moss); margin:0 14px; }
 .formula-eq .result { font-style:italic; color:var(--moss); }
 .formula-desc {
   margin:44px auto 0; max-width:580px;
@@ -1452,7 +1452,7 @@ footer {
             <div>
               <div class="book-price">eBook <span>/ Digital</span></div>
             </div>
-            <a href="#" class="btn-gold">Pre-Order →</a>
+            <a href="#contact" class="btn-gold">Pre-Order →</a>
           </div>
         </div>
       </div>
@@ -1478,7 +1478,7 @@ footer {
           <div class="book-verse">"My sheep hear My voice, and I know them, and they follow Me." — John 10:27</div>
           <div class="book-cta">
             <div><div class="book-price" style="color:var(--ink);">Coming <span>Soon</span></div></div>
-            <a href="#" class="btn-outline-dark" style="border-color:rgba(34,40,37,.3); color:var(--ink-soft);">Pre-Order →</a>
+            <a href="#contact" class="btn-outline-dark" style="border-color:rgba(34,40,37,.3); color:var(--ink-soft);">Pre-Order →</a>
           </div>
         </div>
       </div>
@@ -1504,7 +1504,7 @@ footer {
           <div class="book-verse">"I can do all things through Christ who strengthens me." — Philippians 4:13</div>
           <div class="book-cta">
             <div><div class="book-price">Coming <span>Soon</span></div></div>
-            <a href="#" class="btn-gold">Pre-Order →</a>
+            <a href="#contact" class="btn-gold">Pre-Order →</a>
           </div>
         </div>
       </div>
@@ -1550,15 +1550,15 @@ footer {
         </div>
       </div>
       <div class="stage-row reveal">
-        <div class="stage-num">03</div>
+        <div class="stage-num" style="color: #728a72 !important;">03</div>
         <div class="stage-body">
           <h3>The Return</h3>
-          <p>When you rise again with understanding, failure no longer defines you. It prepares you for a greater purpose and a stronger future. The curtain opens. The light floods in. You are no longer the person who failed — you are the person who was forged by it. Your Return on Failure begins here.</p>
+          <p style="color: #f7f7f7 !important;">When you rise again with understanding, failure no longer defines you. It prepares you for a greater purpose and a stronger future. The curtain opens. The light floods in. You are no longer the person who failed — you are the person who was forged by it. Your Return on Failure begins here.</p>
         </div>
         <div class="stage-tag">
           <div class="stage-tag-inner">
-            <div class="stage-from">From Setback</div>
-            <div class="stage-arrow">→ Purpose</div>
+            <div class="stage-from" style="color: #f7f7f7 !important;">From Setback</div>
+            <div class="stage-arrow" style="color: #77a55a !important;">→ Purpose</div>
           </div>
         </div>
       </div>
@@ -1730,32 +1730,32 @@ footer {
 
     <div class="contact-form-card reveal d1">
       <h3>Send a message</h3>
-      <form class="contact-form" action="https://formsubmit.co/lebelorethabile21@gmail.com" method="post">
+      <form class="contact-form" action="https://formsubmit.co/Admin@return-on-failure.com" method="post">
         <div>
           <label for="contactFirstName">Name <span class="req">*</span></label>
           <div class="contact-name-row">
-            <input id="contactFirstName" class="contact-input" type="text" name="firstName" required>
-            <input id="contactLastName" class="contact-input" type="text" name="lastName" required>
+            <input id="contactFirstName" class="contact-input" type="text" name="firstName" placeholder="John" required>
+            <input id="contactLastName" class="contact-input" type="text" name="lastName" placeholder="Doe" required>
           </div>
           <div class="contact-name-hint"><span>First</span><span>Last</span></div>
         </div>
 
         <div>
           <label for="contactEmail">Email <span class="req">*</span></label>
-          <input id="contactEmail" class="contact-input" type="email" name="email" required>
+          <input id="contactEmail" class="contact-input" type="email" name="email" placeholder="john.doe@example.com" required>
         </div>
 
         <div>
           <label for="contactSubject">Subject <span class="req">*</span></label>
-          <input id="contactSubject" class="contact-input" type="text" name="subject" required>
+          <input id="contactSubject" class="contact-input" type="text" name="subject" placeholder="Your Subject Here" required>
         </div>
 
         <div>
           <label for="contactMessage">Comment or Message <span class="req">*</span></label>
-          <textarea id="contactMessage" class="contact-textarea" name="message" required></textarea>
+          <textarea id="contactMessage" class="contact-textarea" name="message" placeholder="Email us your delivery address and contact information to purchase your copy of the book." required></textarea>
         </div>
 
-        <button class="contact-submit" type="submit">Send Message</button>
+        <button class="contact-submit" type="submit">Send Email</button>
       </form>
     </div>
   </div>
