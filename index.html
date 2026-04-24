@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Return On Failure® — Thato Sigegede Moloi</title>
 <meta name="description" content="Return On Failure helps entrepreneurs, leaders and young professionals transform setbacks into wisdom, purpose and growth. By Thato Sigegede Moloi.">
+<meta name="keywords" content="Return On Failure, Thato Sigegede Moloi, entrepreneurship, leadership, personal growth, resilience, growth mindset">
+<meta name="author" content="Thato Sigegede Moloi">
+<meta property="og:title" content="Return On Failure® — Thato Sigegede Moloi">
+<meta property="og:description" content="Return On Failure helps entrepreneurs, leaders and young professionals transform setbacks into wisdom, purpose and growth. By Thato Sigegede Moloi.">
+<meta property="og:image" content="resources/ReturnOnFailure_Logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Return On Failure">
+<link rel="icon" type="image/png" href="resources/ReturnOnFailure_Logo.png">
 
 <style>
 @font-face {
@@ -741,6 +749,35 @@ section { position:relative; }
 .fw-card p { font-size:.82rem; line-height:1.8; color:rgba(255,255,255,.42); font-weight:300; }
 
 /* ============================================================
+   § THE PREFACE — tabbed content panels
+============================================================ */
+    /* Preface component */
+    #preface { background: linear-gradient(180deg, var(--ink) 0%, #0f1516 100%); }
+    .preface-wrapper { padding: 110px 0; display: flex; flex-direction: column; gap: 28px; }
+    .preface-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .preface-title .eyebrow { color: var(--gold); }
+    .preface-title h2 { font-family: var(--ff-disp); font-size: clamp(2.4rem, 4.5vw, 4rem); line-height: 1.1; color: var(--white); font-weight: 300; margin-top: 14px; }
+    .preface-title p { margin-top: 6px; color: rgba(255,255,255,.65); max-width: 600px; }
+    .preface-toggle { padding: 13px 22px; border: 1px solid rgba(153,200,121,.5); background: var(--gold); color: var(--ink); letter-spacing: .14em; text-transform: uppercase; font-size: .68rem; font-weight: 600; cursor: pointer; transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s; box-shadow: 0 12px 30px rgba(126,171,98,.25); }
+    .preface-toggle:hover { transform: translateY(-2px); background: var(--gold-lt); box-shadow: 0 16px 38px rgba(126,171,98,.3); }
+    .preface-toggle:active { transform: translateY(0); }
+    .preface-panels { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.06); background: rgba(18,24,22,.75); padding: clamp(22px, 3vw, 32px); border-radius: 6px; min-height: 520px; }
+    .preface-panel { position: absolute; inset: 0; opacity: 0; transform: translateX(24px); transition: opacity .55s var(--ease), transform .55s var(--ease); pointer-events: none; display: flex; flex-direction: column; gap: 16px; color: rgba(255,255,255,.8); }
+    .preface-panel h3 { font-family: var(--ff-disp); font-size: 1.15rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 400; }
+    .preface-panel p { font-size: .94rem; line-height: 1.85; color: rgba(255,255,255,.78); }
+    .preface-panel ul { margin: 4px 0 0 18px; display: grid; gap: 6px; color: rgba(255,255,255,.8); }
+    .preface-panel li { font-size: .94rem; line-height: 1.7; }
+    .preface-panel.is-active { position: relative; opacity: 1; transform: translateX(0); pointer-events: auto; }
+    .preface-panel.is-prep { opacity: 0; transform: translateX(-36px); }
+    .preface-panel.is-entering { opacity: 1; transform: translateX(0); }
+    .preface-panel.is-leaving { opacity: 0; transform: translateX(36px); }
+    .preface-meta { font-size: .85rem; color: rgba(255,255,255,.55); }
+    @media (max-width: 768px) {
+      .preface-wrapper { padding: 80px 0; }
+      .preface-head {padding: 18px;}
+      .preface-panels { min-height: 0; padding: 18px; }
+    }
+/* ============================================================
    § THE THREE STAGES (dark → light journey)
 ============================================================ */
 #stages {
@@ -1028,6 +1065,37 @@ section { position:relative; }
 }
 .contact-social-links svg { width:18px; height:18px; }
 
+/* ============================================================
+   FLOATING WHATSAPP
+============================================================ */
+.wa-fab{
+  position:fixed;
+  right:calc(24px + env(safe-area-inset-right, 0px));
+  bottom:calc(24px + env(safe-area-inset-bottom, 0px));
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#25D366;
+  color:#ffffff;
+  z-index:900;
+  box-shadow:0 18px 40px rgba(0,0,0,.45), 0 12px 28px rgba(37,211,102,.25);
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease), filter .25s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.wa-fab:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.02);
+  box-shadow:0 22px 50px rgba(0,0,0,.5), 0 14px 34px rgba(37,211,102,.28);
+}
+.wa-fab:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(246,249,246,.35), 0 18px 40px rgba(0,0,0,.45), 0 12px 28px rgba(37,211,102,.25);
+}
+.wa-fab svg{ width:26px; height:26px; display:block; }
+
 .contact-form-card {
   background:linear-gradient(160deg, rgba(26,30,31,.95) 0%, rgba(18,22,23,.98) 100%);
   border:1px solid rgba(255,255,255,.1);
@@ -1196,6 +1264,13 @@ footer {
   .stats-box { grid-template-columns:1fr 1fr; }
   .contact-name-row,
   .contact-name-hint { grid-template-columns:1fr; }
+  .wa-fab{
+    width:52px;
+    height:52px;
+    right:calc(18px + env(safe-area-inset-right, 0px));
+    bottom:calc(18px + env(safe-area-inset-bottom, 0px));
+  }
+  .wa-fab svg{ width:24px; height:24px; }
 }
 </style>
 </head>
@@ -1221,7 +1296,7 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="#books" class="btn-gold">Get the Book</a>
+    <a href="https://return-on-failure.vercel.app/browse" class="btn-gold">Get the Book</a>
   </div>
   <button class="nav-mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobilePanel">
     <span></span>
@@ -1413,7 +1488,8 @@ footer {
       Maximise the insights extracted from every failure. Minimise the resources burned in the process. The higher your Return on Failure, the faster you grow — and the closer you are to the life you were called to live.
     </p>
     <div style="margin-top:44px;" class="reveal d3">
-      <a href="#books" class="btn-gold" style="background:var(--gold); color:var(--ink);">Begin the Journey</a>
+      <a href="#books" class="btn-gold" style="background:var(--gold); color:var(--ink);margin-top: 2px;">Begin the Journey</a>
+      <a href="#preface" class="btn-gold" style="background:var(--gold); color:var(--ink); margin-top: 2px;">View a preface</a>
     </div>
   </div>
 </section>
@@ -1450,9 +1526,9 @@ footer {
           <div class="book-verse">"Wisdom is the principal thing; therefore get wisdom." — Proverbs 4:7</div>
           <div class="book-cta">
             <div>
-              <div class="book-price">eBook <span>/ Digital</span></div>
+              <div class="book-price">Hard Copy <span>/ eBook</span></div>
             </div>
-            <a href="#contact" class="btn-gold">Pre-Order →</a>
+            <a href="https://return-on-failure.vercel.app/browse" class="btn-gold">Order Now→</a>
           </div>
         </div>
       </div>
@@ -1478,7 +1554,7 @@ footer {
           <div class="book-verse">"My sheep hear My voice, and I know them, and they follow Me." — John 10:27</div>
           <div class="book-cta">
             <div><div class="book-price" style="color:var(--ink);">Coming <span>Soon</span></div></div>
-            <a href="#contact" class="btn-outline-dark" style="border-color:rgba(34,40,37,.3); color:var(--ink-soft);">Pre-Order →</a>
+            <a href="https://return-on-failure.vercel.app/browse" class="btn-outline-dark" style="border-color:rgba(34,40,37,.3); color:var(--ink-soft);">Pre-Order →</a>
           </div>
         </div>
       </div>
@@ -1504,11 +1580,58 @@ footer {
           <div class="book-verse">"I can do all things through Christ who strengthens me." — Philippians 4:13</div>
           <div class="book-cta">
             <div><div class="book-price">Coming <span>Soon</span></div></div>
-            <a href="#contact" class="btn-gold">Pre-Order →</a>
+            <a href="https://return-on-failure.vercel.app/browse" class="btn-gold">Pre-Order →</a>
           </div>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     § PREFACE
+============================================================ -->
+<section id="preface">
+ 
+  <div class="inner preface-wrapper">
+    <div class="preface-head">
+      <div class="preface-title">
+        <p class="eyebrow">Preface &amp; Introduction</p>
+        <h2>Golden <em style="color: var(--gold) !important;">seams of</em> grace</h2>
+        <p>Read the opening pages of Return on Failure — crafted as a quiet, focused reading experience that mirrors the tone of the book.</p>
+      </div>
+      <button id="prefaceToggle" class="preface-toggle" type="button">Read Introduction</button>
+    </div>
+
+    <div class="preface-panels" aria-live="polite">
+      <article class="preface-panel is-active" data-panel="preface" aria-hidden="false">
+        <h3>Preface</h3>
+        <p>In Japan, there is an ancient art called Kintsugi — the art of golden repair. When a piece of pottery breaks, the artist does not discard the fragments. Instead, they gather each piece and mend the cracks using real gold. The result is astonishing — the vessel becomes more valuable and beautiful, not because the cracks disappeared, but because they were redeemed.</p>
+        <p>That is what grace looks like. And that is what God does with our lives.</p>
+        <p>When I look back on my own failures, disappointments, and detours, I realize that God was never discarding me. Like the Kintsugi artist, He gathers the pieces of our shattered stories and fills them with His glory. The brokenness becomes the place of brilliance. The failure becomes the foundation for purpose.</p>
+        <p>But here is where the Kingdom truth takes it even deeper: in Christ, we are not just mended — we are made completely new. As 2 Corinthians 5:17 declares, “Therefore, if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.”</p>
+        <p>In other words, God does not simply patch up the old version of you. He births something completely new from within. Your soul and body still remember the cracks, but your spirit is made new. You renew your mind, draw from the new spirit, and the beauty of Kintsugi still applies: though you are a new creation, the gold of His grace runs visibly through the testimony of what He has brought you out of.</p>
+        <p>Your past no longer defines you; it refines you. Your cracks no longer mark shame; they mark redemption.</p>
+        <p>This book, Return on Failure, was born out of that revelation. It is a journey of learning how God takes what was once broken and turns it into something of eternal value. It is about understanding that failure in His hands is never wasted; it becomes divine investment.</p>
+        <p class="preface-meta">My prayer is that as you read these pages, you will come to see yourself the way God does — not as someone trying to hide the cracks, but as a vessel of grace where His glory shines through every restored fracture. You are not the same person who failed. You are a new creation, beautifully made, with golden seams of grace testifying to His faithfulness. Welcome to Return on Failure — a story of redemption, renewal, and the golden restoration of God.</p>
+      </article>
+
+      <article class="preface-panel" data-panel="introduction" aria-hidden="true">
+        <h3>Introduction</h3>
+        <p>In the world, failure is often seen as the end — the proof that something did not work or that we did not measure up. But in the Kingdom of God, failure carries a completely different meaning. It is not a verdict; it is a vehicle. God does not use failure to destroy us — He uses it to develop us.</p>
+        <p>When a vessel breaks in the hands of a Kintsugi artist, it is not thrown away. The artist does not see loss; he sees potential. In the same way, when your plans fall apart, when you fall short, or when life does not go as expected, heaven does not see a ruined story. God sees an opportunity to reveal His craftsmanship through your cracks.</p>
+        <p>That is what Return on Failure is about — learning to see through God’s eyes. Because in His economy, nothing is wasted. Every broken moment becomes raw material for glory. Romans 8:28 says, “And we know that all things work together for good to them that love God, to them who are the called according to his purpose.”</p>
+        <p>Notice — all things. Not just the victories, but the losses. Not just the highlights, but the heartbreaks. God is not limited by your failure; He works through it. The very thing the enemy meant to use against you becomes the very thing God uses to elevate you. Failure in God’s hands is never final — it is formative. It does not end your story; it refines it. Like liquid gold poured into cracks, His grace turns your broken places into beauty.</p>
+        <p>The world hides failure, but the Kingdom redeems it. The world says “you are done,” but God says “I am not finished.” When you are in Christ — a new creation — even your past failures are rewritten into the narrative of redemption.</p>
+        <p>In this book, we will explore how to:</p>
+        <ul>
+          <li>Redefine what failure truly means.</li>
+          <li>Recognize how God transforms it into growth.</li>
+          <li>Extract wisdom and strength from painful experiences.</li>
+          <li>Move forward with renewed purpose and faith.</li>
+        </ul>
+        <p>Every chapter will take you deeper into how God brings a Return on Failure — a spiritual and personal return that multiplies beyond what you lost. So before you move on, pause for a moment and consider: what if your greatest failure was not the end, but the beginning of a new creation story?</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1724,6 +1847,9 @@ footer {
           <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.8 8.3a2.9 2.9 0 0 0-2-2.1C18 5.7 12 5.7 12 5.7s-6 0-7.8.5a2.9 2.9 0 0 0-2 2.1A30.7 30.7 0 0 0 2 12c0 1.3.1 2.5.3 3.7a2.9 2.9 0 0 0 2 2.1c1.8.5 7.7.5 7.7.5s6 0 7.8-.5a2.9 2.9 0 0 0 2-2.1c.2-1.2.3-2.4.3-3.7s-.1-2.5-.3-3.7ZM10 15.2V8.8l5.2 3.2-5.2 3.2Z"/></svg></a>
           <a href="https://www.facebook.com/profile.php?id=61588627480213" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.3-1.3h1.4V5.9c-.2 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.9v1.6H8V14h2.2v7h3.3Z"/></svg></a>
           <a href="https://www.instagram.com/return_on_failure/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.8" r="1" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/27718397407" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.5c-5.25 0-9.5 4.05-9.5 9.5 0 1.85.5 3.57 1.38 5.05L2.7 21.5l4.55-1.18A9.46 9.46 0 0 0 12 21.5c5.25 0 9.5-4.05 9.5-9.5S17.25 2.5 12 2.5Zm-2.53 5.69c.22-.22.54-.31.84-.24l.93.22c.26.06.46.26.52.52l.22.93c.07.3-.02.62-.24.84l-.5.5c.48.97 1.27 1.76 2.24 2.24l.5-.5c.22-.22.54-.31.84-.24l.93.22c.26.06.46.26.52.52l.22.93c.07.3-.02.62-.24.84l-.63.63c-.27.27-.67.38-1.05.29-1.43-.34-2.77-1.32-3.94-2.49-1.17-1.17-2.15-2.51-2.49-3.94-.09-.38.02-.78.29-1.05l.66-.66Z"/>
+          </svg></a>
         </div>
       </div>
     </div>
@@ -1808,6 +1934,13 @@ footer {
     </div>
   </div>
 </footer>
+
+<a class="wa-fab" href="https://wa.me/27718397407" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <!-- WhatsApp glyph: Font Awesome Free (Icons: CC BY 4.0) -->
+  <svg viewBox="0 0 448 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+</a>
 
 <!-- ============================================================
      JAVASCRIPT
@@ -1966,6 +2099,53 @@ statNums.forEach(el=>co.observe(el));
 const insightCards = document.querySelectorAll('[data-insight-card]');
 const insightGrid = document.querySelector('.about-insights-grid');
 const isDesktop = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 960;
+
+/* ---- Preface/Introduction toggle ---- */
+const prefaceToggle = document.getElementById('prefaceToggle');
+const prefacePanels = Array.from(document.querySelectorAll('.preface-panel'));
+let prefaceActive = 0;
+
+function setPrefaceLabel(){
+  if(!prefaceToggle) return;
+  prefaceToggle.textContent = prefaceActive === 0 ? 'Read Introduction' : 'Back to Preface';
+}
+
+function switchPreface(){
+  if(prefacePanels.length < 2) return;
+  const nextIndex = prefaceActive === 0 ? 1 : 0;
+  const current = prefacePanels[prefaceActive];
+  const incoming = prefacePanels[nextIndex];
+  if(!current || !incoming) return;
+
+  incoming.classList.add('is-prep');
+  incoming.setAttribute('aria-hidden','false');
+  incoming.getBoundingClientRect(); // force reflow for smooth start
+  incoming.classList.add('is-entering');
+  current.classList.add('is-leaving');
+
+  const handleLeave = ()=>{
+    current.classList.remove('is-active','is-leaving');
+    current.setAttribute('aria-hidden','true');
+    current.removeEventListener('transitionend', handleLeave);
+  };
+
+  const handleEnter = ()=>{
+    incoming.classList.remove('is-prep','is-entering');
+    incoming.classList.add('is-active');
+    incoming.removeEventListener('transitionend', handleEnter);
+  };
+
+  incoming.addEventListener('transitionend', handleEnter, {once:true});
+  current.addEventListener('transitionend', handleLeave, {once:true});
+
+  prefaceActive = nextIndex;
+  setPrefaceLabel();
+}
+
+if(prefaceToggle && prefacePanels.length){
+  setPrefaceLabel();
+  prefaceToggle.addEventListener('click', switchPreface);
+}
 
 function collapseInsight(card){
   const content = card.querySelector('[data-insight-content]');
